@@ -1,0 +1,226 @@
+/* Reset Sheet (Start) */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    line-height: 1.5;
+}
+
+img, picture, video, canvas, svg{
+    display: block;
+    max-width: 100%;
+}
+
+.sr-only {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    -webkit-clip-path: inset(50%) !important;
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    margin: -1px !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+    white-space: nowrap !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+    clip: auto !important;
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    height: auto !important;
+    margin: auto !important;
+    overflow: visible !important;
+    position: static !important;
+    width: auto !important;
+    white-space: normal !important;
+}
+
+/* Reset Sheet (End) */
+
+/* This Project CSS */
+:root {
+    /* ### Primary  */
+    --desaturated-red: hsl(0, 36%, 70%);
+    --soft-red: hsl(0, 93%, 68%);
+    
+    /* ### Neutral  */
+    --dark-grayish-red: hsl(0, 6%, 24%);
+
+    --main-font: 'Josefin Sans', sans-serif;
+}
+
+
+body {
+    font-family: var(--main-font);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+main {
+    display: grid;
+    grid-template-areas:  
+        "brand"
+        "picture"
+        "description" ;
+    align-content: center;
+    min-width: 300px;
+    max-width: calc(600/16*1rem);
+    /* background-color: yellow; */
+    box-shadow: 0 0 1rem 0 rgb(164, 164, 164);
+
+}
+
+.logo {
+    grid-area: brand;
+    width: 10rem;
+    padding: 1.5rem;
+}
+
+.hero {
+    grid-area: picture;
+    background-image: url("../images/hero-mobile.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    /* height: 0px;
+    padding-top: calc(250/375 * 100%); */
+    /* background-color: black; */
+    aspect-ratio: 375/250;
+}
+
+
+.description {
+    grid-area: description;
+    display: flex;
+    flex-direction: column;
+    padding: 2.75rem 2rem;
+    gap: 2rem;
+    text-align: center;
+}
+
+.description h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+    color: var(--dark-grayish-red);
+    /* background-color: lightcoral; */
+}
+
+.description span {
+    color: var(--desaturated-red);
+    font-weight: 400;
+}
+
+.description p {
+    color: var(--desaturated-red);
+    /* background-color: purple; */
+}
+
+.email-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+}
+
+
+#email {
+    padding-left: 2rem;
+    width: 100%;
+    height: 3rem;
+    border-radius: 2rem;
+    border: 1px solid var(--desaturated-red);
+    font-family: var(--main-font);
+    font-size: 1rem;
+    outline: none;
+}
+
+#email::placeholder {
+    color: var(--desaturated-red);
+}
+
+#submit {
+    position: absolute;
+    width: 4rem;
+    height: 3rem;
+    border: 1px solid var(--soft-red);
+    border-radius: 2rem;
+    background-color: var(--soft-red);
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#submit:hover {
+    opacity: 0.7;
+}
+
+.icon-arrow {
+    width: 2rem;
+    border-radius: 1rem;
+    position: absolute;
+}
+
+#icon-error {
+    position: absolute;
+    width: 1.5rem;
+    right: 4.5rem;
+    display: none;
+}
+
+#error-msg {
+    position: absolute;
+    bottom: -1.5rem;
+    left: 2rem;
+    color: var(--soft-red);
+    display: none;
+}
+
+
+@media screen and (min-width: 920px) {    
+   main {
+        grid-template-areas:
+                "brand picture"
+                "description picture"
+                ;
+        max-width: calc(920/16*1rem);
+        height: calc(500/16*1rem);
+   }
+
+   .logo {
+        padding-left: 4rem ;
+        width: 15rem;
+   }
+
+   .hero {
+        background-image: url("../images/hero-desktop.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: calc(500/16*1rem);
+        aspect-ratio: 610/800;
+
+   }
+
+   .description {
+        text-align: left;
+        padding: 0 4rem;
+   }
+
+   .description h1 {
+        font-size: 2.25rem
+   }
+
+
+}
